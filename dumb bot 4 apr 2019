@@ -1,0 +1,88 @@
+import json
+import requests
+import time
+
+TOKEN = '540071777:AAEwu3b-0jxSrG_MvK3YF50Yak-XL2TI_VE'
+URL = "https://api.telegram.org/bot{}/".format(TOKEN)
+
+from telegram.ext import Updater, CommandHandler
+
+def starts(bot, update):
+  update.message.reply_text("I'm alive!")
+  time.sleep(1)
+  update.message.reply_text("Wait, that's not possible. I'm just a bot after all...")
+  time.sleep(1)
+  update.message.reply_text("Anyway, nice to meet you!")
+
+def wedding(bot,update):
+  update.message.reply_text("Tsk, shame on you, forgetting the details of this joyous occasion. If I had my way, I'd have you hanged for blasphemy.")
+  time.sleep(3)
+  update.message.reply_text("Anyway. leong and naki's wedding is officially on 23 March, 6pm, Flower Dome, Gardens By The Bay. Don't wear jeans!")
+
+def pornstar(bot,update):
+  update.message.reply_text("naki thinks she can be a pornstar")
+
+def wong(bot,update):
+  update.message.reply_text("wong is a brownhaired lesbian twink")
+
+def leong(bot,update):
+  update.message.reply_text("hoho homo! I love mob psycho! You're an Oreo O!")
+
+def naki(bot,update):
+  update.message.reply_text("MY BUTTHOLE IS ON FIRE")
+
+def joo(bot,update):
+  update.message.reply_text("I want to sleep but my hair is still wet :(((((")
+
+def jy(bot,update):
+    update.message.reply_text("I only love kang")
+
+def list(bot,update):
+  update.message.reply_text("Currently available commands: \n /starts \n /wedding \n /pornstar \n /wong \n /leong \n /naki \n /joo \n /jy")
+
+
+
+
+
+def main():
+  # Create Updater object and attach dispatcher to it
+  updater = Updater(TOKEN)
+  dispatcher = updater.dispatcher
+  print("Bot is alive!")
+
+  # Add 'start' command handler to dispatcher
+  starts_handler = CommandHandler('starts',starts)
+  dispatcher.add_handler(starts_handler)
+
+  wedding_handler = CommandHandler('wedding',wedding)
+  dispatcher.add_handler(wedding_handler)
+
+  pornstar_handler = CommandHandler('pornstar',pornstar)
+  dispatcher.add_handler(pornstar_handler)
+
+  wong_handler = CommandHandler('wong',wong)
+  dispatcher.add_handler(wong_handler)
+
+  leong_handler = CommandHandler('leong',leong)
+  dispatcher.add_handler(leong_handler)
+
+  naki_handler = CommandHandler('naki',naki)
+  dispatcher.add_handler(naki_handler)
+
+  joo_handler = CommandHandler('joo',joo)
+  dispatcher.add_handler(joo_handler)
+
+  jy_handler = CommandHandler('jy',jy)
+  dispatcher.add_handler(jy_handler)
+
+  list_handler = CommandHandler('list',list)
+  dispatcher.add_handler(list_handler)
+
+  # Start the bot
+  updater.start_polling()
+
+  # Run the bot until you press Ctrl-C
+  updater.idle()
+
+if __name__ == '__main__':
+  main()
