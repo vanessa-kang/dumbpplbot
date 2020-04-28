@@ -1,0 +1,187 @@
+#dumbpplbot
+
+import json
+import requests
+import time
+import random
+import telegram
+from bs4 import BeautifulSoup
+
+TOKEN = '[TOKEN]' #insert token here
+URL = "https://api.telegram.org/bot{}/".format(TOKEN)
+chatId = -1001242473017
+
+from telegram.ext import Updater, CommandHandler
+
+def start(update,context):
+  update.message.reply_text("I'm alive!")
+
+def pornstar(update,context):
+  update.message.reply_text("naki thinks she can be a pornstar")
+
+def wong(update,context):
+  update.message.reply_text("wong is a brownhaired lesbian twink")
+
+def leong(update,context):
+  update.message.reply_text("hoho homo! I love mob psycho! You're an Oreo O!")
+
+def naki(update,context):
+  update.message.reply_text("MY BUTTHOLE IS ON FIRE")
+
+def joo(update,context):
+  update.message.reply_text("I want to sleep but my hair is still wet :(((((")
+
+def cheer(update,context):
+    update.message.reply_text("I only love kang <3")
+
+def confusedcat(update,context):
+  update.message.reply_photo("https://i.kym-cdn.com/photos/images/original/001/505/718/136.jpg")
+
+def kermit(update,context):
+  update.message.reply_video("https://media.giphy.com/media/3o85xGocUH8RYoDKKs/giphy.gif")
+
+def shockedpikachu(update,context):
+  update.message.reply_photo("https://66.media.tumblr.com/60aeee62dc1aee0c3c0fbad1702eb860/tumblr_inline_pfp352ORsk1r4hkfd_250.png")
+
+def radio(update,context):
+  update.message.reply_text(random.choice(music))
+
+music = ["https://youtu.be/NoWudgNNIwM",
+         "https://youtu.be/Mh5LY4Mz15o",
+         "https://youtu.be/tVj0ZTS4WF4",
+         "https://youtu.be/7CawoPNkY00"]
+
+def nc(update,context):
+  update.message.reply_text("{} {}!".format(random.choice(N), random.choice(C)))
+
+N = ["Nintendo", "Nickelback", "Natural", "Neighbourly", "Nation", "Naked", "Nathan", "Nausea", "Narcolepsy", "Necessary", 
+     "Nibble", "Nitrogen", "Nifty", "Nimbus", "Niche", "Nightfall", "Ninja", "Nimble", "Nice", "Nunchuck", 
+     "Nitpicky", "Nonzero", "Netizen", "Napkin", "Nephew", "Niece", "Nullification", "Neck", "Newborn", "Niobium", 
+     "Nobody", "Napalm", "Naughty", "Nutmeg", "Nutty", "Nuclear", "Neurology", "Normalcy", "Nanoparticle", "Nectar", 
+     "Nutrition", "Nihilism", "Nonintervention", "Nitrobenzene", "Nincompoop", "Nebulous", "Network", "Nicotine", "Nightlife", "Nirvana", "Nugget", "Nargle", "Naki", "Nicaragua", "Nickelodeon", "Neapolitan", "Nayeon", "Nekoma", "Neuroscience", "Napping"]
+
+C = ["Charm", "Chicken", "Churro", "Chen", "Chuck", "Cheese", "Cheque", "Chimpanzee", "Chief", "Chocolate",
+     "Chair", "Chancellor", "Child", "Charity", "Chlorophyll", "Chloroplast", "Chimney", "Champagne", "Challenge", "Chop", 
+     "Cheekbone", "Chloride", "Chestnut", "Champion", "Chandelier", "Chipmunk", "Chitchat", "Chainsaw", "Chilli", "Choker", 
+     "Charcoal", "Chapel", "Chisel", "Chimes", "Cheddar", "Cheer", "Chug", "Chick", "Chowder", "Chef", 
+     "Chambray", "Chatroom", "Chickpea", "Chromatic", "Charm", "Chatterbox", "Chalkboard", "Charger", "China", "Childbirth",
+     "Czechoslovakia", "Chum", "Chi-square test", "Chiropractor", "Chapstick", "Chickenpox", "Cheesecake", "Chaeyoung"]
+     
+def el(update,context):
+    update.message.reply_text("{} {}!".format(random.choice(E), random.choice(L)))
+    
+E = ["Elephant", "E-commerce", "Eclipse", "Echo", "Energy", "Error", "Electromagnetism", "Elf", "Epipen", "Epidemic", "Epidural", "Emancipation", "Emergency", "Eevee"]
+
+L = ["Loser", "Larynx", "Larceny", "Lipids", "Laminator", "Locomotive", "Legalisation", "Lefthandedness", "Lump", "Luxury", "Location"]
+
+def vk(update,context):
+    update.message.reply_text("{} {}!".format(random.choice(V), random.choice(K)))
+
+V = ["Vegas", "Vacuum", "Varsity", "Vacant", "Vaseline", "Valedictorian", "Villain", "Vanquishment", "Vine", "Volcano", "Vocabulary"]
+
+K = ["Kilimanjaro", "Kiasu", "Kirby", "Kangaroo", "Kerfuffle", "Koala", "Kilowatt", "Kindergarten", "Kite", "Kingfisher", "Kryptonite", "Khaleesi"]
+     
+def jn(update,context):
+    update.message.reply_text("{} {}!".format(random.choice(J), random.choice(N)))
+    
+J = ["January", "Jigglypuff", "Jabberwocky", "Jazzy", "Jargon", "Jingle", "Jetlag", "Jet", "Jeopardy", "Joyless", "Jupiter", "Jam", "Jukebox", "Jumper", "Jurisprudence", "Juxtaposition"]
+
+def jy(update,context):
+    update.message.reply_text("{} {}!".format(random.choice(J), random.choice(Y)))
+    
+Y = ["Yeet", "Yellow", "Yelling", "Y-chromosome", "Yacht", "Yoghurt", "Yawn", "Yoga", "Yonder", "Yarn", "Yeast", "Youth", "Yodeller", "Yak", "Year", "Yelp", "Yard", "Yolk", "Yokohoma", "Yveltal"]
+
+def cw(update,context):
+    update.message.reply_text("{} {}!".format(random.choice(C), random.choice(W)))
+    
+W = ["Wellington", "Weeaboo", "Windsurfer", "Winner", "Warcry", "Wine", "Wallaby", "Weed", "Weedkiller", "Wit", "Weather", "Webchat", "Wisteria", "Wallet", "Waffle", "Wagon", "Waitlist", "Worm", "Wordplay", "Whale"]
+
+def eightball(update,context):
+    update.message.reply_text(random.choice(det))
+    
+det = ["No.", "It is certain.", "My reply is no.", "My sources say no.", "Very doubtful.", "Don't count on it.", "Yes.", "It is decidedly so.", "Of course, my horse.", "Without a doubt.", "You may rely on it.", "As I see it, yes.", "Signs point to yes.", "Most likely.", "Ask again later.", "Cannot predict now.", "Concentrate and ask again.", "There is a time and place for everything, but not now."]
+
+def xkcd(update,context):
+    argv = " ".join(context.args)
+    
+    pagetxt = requests.get('https://xkcd.com/{}' .format(argv))
+    soup = BeautifulSoup(pagetxt.text, 'html.parser')
+    #ctitle = (soup.find("div", {"id": "ctitle"})).get_text()
+    
+    tmp = soup.find("div", {"id": "comic"}).findAll('img')
+    for title in tmp:
+        ctitle = title['alt']
+    for subtext in tmp:
+        csubtext = subtext['title']
+    for image in tmp:
+        cimage = image['src']
+    
+    update.message.reply_text("{} ({}) \n{} \nhttps:{}".format(ctitle, argv, csubtext, cimage))
+    #TODO: bold title, italicize subtext, hyperlink image to title
+
+def list(update,context):
+  update.message.reply_text("Currently available commands:\n"
+  
+                          "\nThe Originals:\n"
+                          "/pornstar\n"
+                          "/wong\n"
+                          "/leong\n"
+                          "/naki\n"
+                          "/joo\n"
+                          "/cheer\n"
+                          
+                          "\nMemes:\n"
+                          "/confusedcat\n"
+                          "/kermit\n"
+                          "/shockedpikachu\n"
+                          "/radio\n"
+                          
+                          "\nClown name generators:\n"
+                          "/nc  /el  /vk  /jn  /jy  /cw\n"
+
+                          "\nOtouto clones:\n"
+                          "/eightball\n"
+                          "/fakexkcd [comic number]\n"
+                          
+                          "\nUtility\n"
+                          "/starts\n"
+                          "/list")
+
+
+def main():
+  # Create Updater object and attach dispatcher to it
+  #updater = Updater(TOKEN)
+  updater = Updater(TOKEN, use_context=True)
+  dp = updater.dispatcher
+  print("Bot is alive!")
+
+  # Add 'start' command handler to dispatcher
+  dp.add_handler(CommandHandler('starts',start))
+  dp.add_handler(CommandHandler('pornstar',pornstar))
+  dp.add_handler(CommandHandler('wong',wong))
+  dp.add_handler(CommandHandler('leong',leong))
+  dp.add_handler(CommandHandler('naki',naki))
+  dp.add_handler(CommandHandler('joo',joo))
+  dp.add_handler(CommandHandler('cheer',cheer))
+  dp.add_handler(CommandHandler('confusedcat',confusedcat))
+  dp.add_handler(CommandHandler('kermit',kermit))
+  dp.add_handler(CommandHandler('shockedpikachu',shockedpikachu))
+  dp.add_handler(CommandHandler('radio',radio))
+  dp.add_handler(CommandHandler('nc',nc))
+  dp.add_handler(CommandHandler('el',el))
+  dp.add_handler(CommandHandler('vk',vk))
+  dp.add_handler(CommandHandler('jn',jn))
+  dp.add_handler(CommandHandler('jy',jy))
+  dp.add_handler(CommandHandler('cw',cw))
+  dp.add_handler(CommandHandler('eightball',eightball))
+  dp.add_handler(CommandHandler('fakexkcd',xkcd))
+  dp.add_handler(CommandHandler('list',list))
+  
+  # Start the bot
+  updater.start_polling()
+
+  # Run the bot until you press Ctrl-C
+  updater.idle()
+
+if __name__ == '__main__':
+  main()
