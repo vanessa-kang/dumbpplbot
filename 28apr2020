@@ -9,7 +9,6 @@ from bs4 import BeautifulSoup
 
 TOKEN = '[TOKEN]' #insert token here
 URL = "https://api.telegram.org/bot{}/".format(TOKEN)
-chatId = -1001242473017
 
 from telegram.ext import Updater, CommandHandler
 
@@ -146,7 +145,6 @@ def list(update,context):
                           "\nUtility\n"
                           "/starts\n"
                           "/list")
-
 
 def main():
   # Create Updater object and attach dispatcher to it
