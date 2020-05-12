@@ -1,0 +1,70 @@
+leongList = ["hoho homo! I love mob psycho! You're an Oreo O!",
+            "( ~ * ○ • ○) ~ *、( ~ * ○ • ○) ~ *、( ~ * ○ • ○) ~ *、( ~ * ○ • ○) ~ *、( ~ * ○ • ○) ~ *、( ~ * ○ • ○) ~ *、( ~ * ○ • ○) ~ *、( ~ * ○ • ○) ~ *、( ~ * ○ • ○) ~ *、"]
+
+nakiList = ["MY BUTTHOLE IS ON FIRE",
+            "naki thinks she can be a pornstar"]
+
+radioList = ["https://youtu.be/NoWudgNNIwM",
+             "https://youtu.be/Mh5LY4Mz15o",
+             "https://youtu.be/tVj0ZTS4WF4",
+             "https://youtu.be/7CawoPNkY00"]
+             
+N = ["Nintendo", "Nickelback", "Natural", "Neighbourly", "Nation", "Naked", "Nathan", "Nausea", "Narcolepsy", "Necessary",
+     "Nibble", "Nitrogen", "Nifty", "Nimbus", "Niche", "Nightfall", "Ninja", "Nimble", "Nice", "Nunchuck",
+     "Nitpicky", "Nonzero", "Netizen", "Napkin", "Nephew", "Niece", "Nullification", "Neck", "Newborn", "Niobium",
+     "Nobody", "Napalm", "Naughty", "Nutmeg", "Nutty", "Nuclear", "Neurology", "Normalcy", "Nanoparticle", "Nectar",
+     "Nutrition", "Nihilism", "Nonintervention", "Nitrobenzene", "Nincompoop", "Nebulous", "Network", "Nicotine", "Nightlife", "Nirvana", "Nugget", "Nargle", "Naki", "Nicaragua", "Nickelodeon", "Neapolitan", "Nayeon", "Nekoma", "Neuroscience", "Napping"]
+
+C = ["Charm", "Chicken", "Churro", "Chen", "Chuck", "Cheese", "Cheque", "Chimpanzee", "Chief", "Chocolate",
+     "Chair", "Chancellor", "Child", "Charity", "Chlorophyll", "Chloroplast", "Chimney", "Champagne", "Challenge", "Chop",
+     "Cheekbone", "Chloride", "Chestnut", "Champion", "Chandelier", "Chipmunk", "Chitchat", "Chainsaw", "Chilli", "Choker",
+     "Charcoal", "Chapel", "Chisel", "Chimes", "Cheddar", "Cheer", "Chug", "Chick", "Chowder", "Chef",
+     "Chambray", "Chatroom", "Chickpea", "Chromatic", "Charm", "Chatterbox", "Chalkboard", "Charger", "China", "Childbirth",
+     "Czechoslovakia", "Chum", "Chi-square test", "Chiropractor", "Chapstick", "Chickenpox", "Cheesecake", "Chaeyoung"]
+     
+E = ["Elephant", "E-commerce", "Eclipse", "Echo", "Energy", "Error", "Electromagnetism", "Elf", "Epipen", "Epidemic", "Epidural", "Emancipation", "Emergency", "Eevee", "Eccentric", "Epidermal", "Epidemiology", "Erroneous", "Economical", "Expenditure"]
+
+L = ["Loser", "Larynx", "Larceny", "Lipids", "Laminator", "Locomotive", "Legalisation", "Lefthandedness", "Lump", "Luxury", "Location", "Lame", "Lululemon"]
+
+V = ["Vegas", "Vacuum", "Varsity", "Vacant", "Vaseline", "Valedictorian", "Villain", "Vanquishment", "Vine", "Volcano", "Vocabulary", "Volatile", "Virtual", "Visualisation"]
+
+K = ["Kilimanjaro", "Kiasu", "Kirby", "Kangaroo", "Kerfuffle", "Koala", "Kilowatt", "Kindergarten", "Kite", "Kingfisher", "Kryptonite", "Khaleesi", "Kek"]
+
+J = ["January", "Jigglypuff", "Jabberwocky", "Jazzy", "Jargon", "Jingle", "Jetlag", "Jet", "Jeopardy", "Joyless", "Jupiter", "Jam", "Jukebox", "Jumper", "Jurisprudence", "Juxtaposition", "Jubilant"]
+
+Y = ["Yeet", "Yellow", "Yelling", "Y-chromosome", "Yacht", "Yoghurt", "Yawn", "Yoga", "Yonder", "Yarn", "Yeast", "Youth", "Yodeller", "Yak", "Year", "Yelp", "Yard", "Yolk", "Yokohoma", "Yveltal"]
+
+W = ["Wellington", "Weeaboo", "Windsurfer", "Winner", "Warcry", "Wine", "Wallaby", "Weed", "Weedkiller", "Wit", "Weather", "Webchat", "Wisteria", "Wallet", "Waffle", "Wagon", "Waitlist", "Worm", "Wordplay", "Whale", "Welder"]
+
+site = ["https://rss.nytimes.com/services/xml/rss/nyt/World.xml", #nyt world
+        "http://feeds.bbci.co.uk/news/world/rss.xml",             #bbc world
+        "http://feeds.reuters.com/Reuters/worldNews",             #reuters world
+        "http://blogs.reuters.com/the-human-impact/feed/",        #reuters the human impact blog
+        "https://www.theguardian.com/international/rss",          #guardian
+        "http://feeds.nature.com/nature/rss/current?x=1",         #nature
+        "https://longreads.com/feed/",                            #longreads
+         "https://www.wired.com/feed/rss",                         #wired
+         "https://www.outsideonline.com/rss/all/rss.xml",          #outside
+         "https://www.vox.com/rss/index.xml",                      #vox
+         "https://news.ycombinator.com/rss",                       #hackernews
+         "http://rss.slashdot.org/Slashdot/slashdotMain",          #slashdot
+         "http://feeds.mashable.com/Mashable",                     #mashable
+         "https://www.theverge.com/rss/index.xml",                 #the verge
+         "https://www.polygon.com/rss/index.xml",                  #polygon
+         "http://feeds.arstechnica.com/arstechnica/index",         #ars technica
+         "http://feeds.arstechnica.com/arstechnica/features",      #ars technica features
+         "https://gizmodo.com/rss",                                #gizmodo
+         "http://feeds.feedburner.com/tedblog",                    #TED blog
+         "http://feeds.feedburner.com/tedtalks_video",             #TED talks
+         "https://feeds.feedburner.com/codinghorror",              #coding horror
+         "https://m.signalvnoise.com/feed/",                       #signal v noise
+         "https://nakedsecurity.sophos.com/feed/",                 #nakedsecurity
+         "https://www.schneier.com/blog/atom.xml",                 #schneier on security
+         "https://krebsonsecurity.com/feed/",                      #krebs on security
+         "https://waitbutwhy.com/feed",                            #waitbutwhy
+         "http://feeds.feedburner.com/seriouseatsfeaturesvideos"   #seriouseats
+        ]
+        
+ballList = ["No.", "It is certain.", "My reply is no.", "My sources say no.", "Very doubtful.", "Don't count on it.", "Yes.", "It is decidedly so.", "Of course, my horse.", "Without a doubt.", "You may rely on it.", "As I see it, yes.", "Signs point to yes.", "Most likely.", "Ask again later.", "Cannot predict now.", "Concentrate and ask again.", "There is a time and place for everything, but not now."]
+
+unitsList = ['kg', 'lb', 'cm', 'ft', 'km', 'mi', 'C', 'F']
