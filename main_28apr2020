@@ -7,7 +7,7 @@ import random
 import telegram
 from bs4 import BeautifulSoup
 
-TOKEN = '[TOKEN]' #insert token here
+TOKEN = '<token>' #insert token here
 URL = "https://api.telegram.org/bot{}/".format(TOKEN)
 
 from telegram.ext import Updater, CommandHandler
