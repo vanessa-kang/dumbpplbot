@@ -43,26 +43,26 @@ site = ["https://rss.nytimes.com/services/xml/rss/nyt/World.xml", #nyt world
         "https://www.theguardian.com/international/rss",          #guardian
         "http://feeds.nature.com/nature/rss/current?x=1",         #nature
         "https://longreads.com/feed/",                            #longreads
-         "https://www.wired.com/feed/rss",                         #wired
-         "https://www.outsideonline.com/rss/all/rss.xml",          #outside
-         "https://www.vox.com/rss/index.xml",                      #vox
-         "https://news.ycombinator.com/rss",                       #hackernews
-         "http://rss.slashdot.org/Slashdot/slashdotMain",          #slashdot
-         "http://feeds.mashable.com/Mashable",                     #mashable
-         "https://www.theverge.com/rss/index.xml",                 #the verge
-         "https://www.polygon.com/rss/index.xml",                  #polygon
-         "http://feeds.arstechnica.com/arstechnica/index",         #ars technica
-         "http://feeds.arstechnica.com/arstechnica/features",      #ars technica features
-         "https://gizmodo.com/rss",                                #gizmodo
-         "http://feeds.feedburner.com/tedblog",                    #TED blog
-         "http://feeds.feedburner.com/tedtalks_video",             #TED talks
-         "https://feeds.feedburner.com/codinghorror",              #coding horror
-         "https://m.signalvnoise.com/feed/",                       #signal v noise
-         "https://nakedsecurity.sophos.com/feed/",                 #nakedsecurity
-         "https://www.schneier.com/blog/atom.xml",                 #schneier on security
-         "https://krebsonsecurity.com/feed/",                      #krebs on security
-         "https://waitbutwhy.com/feed",                            #waitbutwhy
-         "http://feeds.feedburner.com/seriouseatsfeaturesvideos"   #seriouseats
+        "https://www.wired.com/feed/rss",                         #wired
+        "https://www.outsideonline.com/rss/all/rss.xml",          #outside
+        "https://www.vox.com/rss/index.xml",                      #vox
+        "https://news.ycombinator.com/rss",                       #hackernews
+        "http://rss.slashdot.org/Slashdot/slashdotMain",          #slashdot
+        "http://feeds.mashable.com/Mashable",                     #mashable
+        "https://www.theverge.com/rss/index.xml",                 #the verge
+        "https://www.polygon.com/rss/index.xml",                  #polygon
+        "http://feeds.arstechnica.com/arstechnica/index",         #ars technica
+        "http://feeds.arstechnica.com/arstechnica/features",      #ars technica features
+        "https://gizmodo.com/rss",                                #gizmodo
+        "http://feeds.feedburner.com/tedblog",                    #TED blog
+        "http://feeds.feedburner.com/tedtalks_video",             #TED talks
+        "https://feeds.feedburner.com/codinghorror",              #coding horror
+        "https://m.signalvnoise.com/feed/",                       #signal v noise
+        "https://nakedsecurity.sophos.com/feed/",                 #nakedsecurity
+        "https://www.schneier.com/blog/atom.xml",                 #schneier on security
+        "https://krebsonsecurity.com/feed/",                      #krebs on security
+        "https://waitbutwhy.com/feed",                            #waitbutwhy
+        "http://feeds.feedburner.com/seriouseatsfeaturesvideos"   #seriouseats
         ]
         
 ballList = ["No.", "It is certain.", "My reply is no.", "My sources say no.", "Very doubtful.", "Don't count on it.", "Yes.", "It is decidedly so.", "Of course, my horse.", "Without a doubt.", "You may rely on it.", "As I see it, yes.", "Signs point to yes.", "Most likely.", "Ask again later.", "Cannot predict now.", "Concentrate and ask again.", "There is a time and place for everything, but not now."]
