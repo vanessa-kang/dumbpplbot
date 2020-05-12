@@ -1,0 +1,275 @@
+#dumbpplbot
+
+import json
+import requests
+import time
+import random
+import telegram
+from bs4 import BeautifulSoup
+import feedparser as fp
+from lists import * #local lists.py file
+
+TOKEN = '<token>' #insert token here
+URL = "https://api.telegram.org/bot{}/".format(TOKEN)
+
+from telegram.ext import Updater, CommandHandler
+
+def start(update,context):
+  update.message.reply_text("I'm alive!")
+
+def wong(update,context):
+  update.message.reply_text("wong is a brownhaired lesbian twink")
+
+def leong(update,context):
+  update.message.reply_text(random.choice(leongList))
+
+def naki(update,context):
+  update.message.reply_text(random.choice(nakiList))
+
+def joo(update,context):
+  update.message.reply_text("I want to sleep but my hair is still wet :(((((")
+
+def cheer(update,context):
+    update.message.reply_text("I only love kang <3")
+
+def confusedcat(update,context):
+  update.message.reply_photo("https://i.kym-cdn.com/photos/images/original/001/505/718/136.jpg")
+
+def kermit(update,context):
+  update.message.reply_video("https://media.giphy.com/media/3o85xGocUH8RYoDKKs/giphy.gif")
+
+def shockedpikachu(update,context):
+    update.message.reply_photo("https://66.media.tumblr.com/60aeee62dc1aee0c3c0fbad1702eb860/tumblr_inline_pfp352ORsk1r4hkfd_250.png")
+
+def radio(update,context):
+  update.message.reply_text(random.choice(radioList))
+
+def nc(update,context):
+  update.message.reply_text("{} {}!".format(random.choice(N), random.choice(C)))
+
+def el(update,context):
+    update.message.reply_text("{} {}!".format(random.choice(E), random.choice(L)))
+
+def vk(update,context):
+    update.message.reply_text("{} {}!".format(random.choice(V), random.choice(K)))
+
+def jn(update,context):
+    update.message.reply_text("{} {}!".format(random.choice(J), random.choice(N)))
+    
+def jy(update,context):
+    update.message.reply_text("{} {}!".format(random.choice(J), random.choice(Y)))
+
+def cw(update,context):
+    update.message.reply_text("{} {}!".format(random.choice(C), random.choice(W)))
+
+def news(update,context):
+    
+    #for debugging
+    #h = random.choice(site)
+    #update.message.reply_text("{}".format(h))
+    #d = fp.parse("{}".format(h))
+    
+    d = fp.parse("{}".format(random.choice(site))) #comment out if debugging
+    i = random.randint(0,len(d))
+    update.message.reply_text("{}\n{}".format(d['entries'][i]['title'], d['entries'][i]['link']))
+
+def eightball(update,context):
+    update.message.reply_text(random.choice(ballList))
+
+def xkcd(update,context):
+    try:
+        num = int(context.args[0])
+        if num < 0:
+            update.message.reply_text("That is not a valid comic number!")
+            return
+            
+        #argv = " ".join(context.args)
+        
+        pagetxt = requests.get('https://xkcd.com/{}' .format(num))
+        soup = BeautifulSoup(pagetxt.text, 'html.parser')
+        #ctitle = (soup.find("div", {"id": "ctitle"})).get_text()
+        
+        tmp = soup.find("div", {"id": "comic"}).findAll('img')
+        for title in tmp:
+            ctitle = title['alt']
+        for subtext in tmp:
+            csubtext = subtext['title']
+        for image in tmp:
+            cimage = image['src']
+        
+        chat_id = update.message.chat_id
+        context.bot.send_message(chat_id=chat_id, text="<a href='https:{}'><b>{} ({})</b></a> \n<i>{}</i>".format(cimage, ctitle, num, csubtext), parse_mode=telegram.ParseMode.HTML)
+        #update.message.reply_text("{} ({}) \n{} \nhttps:{}".format(ctitle, argv, csubtext, cimage))
+
+    except (IndexError, ValueError):
+        update.message.reply_text("Usage: /fxkcd <comic number>")
+
+def convert(update,context):
+    try:
+        strFrom = context.args[1]
+        if strFrom in unitsList:
+        
+            numFrom = float(context.args[0])
+            
+            if strFrom in ['kg']:
+                strTo = 'lb'
+                numTo = numFrom * 2.20462 # to lb
+            
+            elif strFrom in ['lb']:
+                strTo = 'kg'
+                numTo = numFrom * 0.453592 # to kg
+                
+            elif strFrom in ['cm']:
+                strTo = 'ft'
+                numTo = numFrom * 0.0328084 # to ft
+                
+            elif strFrom in ['ft']:
+                strTo = 'cm'
+                numTo = numFrom * 30.48 # to cm
+                
+            elif strFrom in ['km']:
+                strTo = 'mi'
+                numTo = numFrom * 0.621371 # to mi
+                
+            elif strFrom in ['mi']:
+                strTo = 'km'
+                numTo = numFrom * 1.60934 # to km
+                
+            elif strFrom in ['C']:
+                strTo = 'F'
+                numTo = numFrom * 1.8 + 32 # to F
+                
+            elif strFrom in ['F']:
+                strTo = 'C'
+                numTo = (numFrom - 32) * 0.55 # to C
+            
+            update.message.reply_text("{} {} = {} {}".format(numFrom, strFrom, round(numTo,2), strTo))
+            
+        else:
+            update.message.reply_text("Invalid unit!\nCurrently supported units: {}".format(', '.join(unitsList)))
+    
+    except (IndexError, ValueError):
+        update.message.reply_text("Usage: /convert <value> <unit>\nCurrently supported units: {}".format(', '.join(unitsList)))
+
+def set_timer(update, context):
+    """Add a job to the queue."""
+    try:
+        # args[0] should contain the time for the timer in seconds
+        due = int(context.args[0])
+        if due < 0:
+            update.message.reply_text("Usage: /set <seconds> <message>")
+            return
+            
+        if context.args[1] == "":
+            update.message.reply_text("Usage: /set <seconds> <message>")
+            return
+
+        # Add job to queue and stop current one if there is a timer already
+        #if 'job' in context.chat_data: #remove current job, if it exists
+        #    old_job = context.chat_data['job']
+        #    old_job.schedule_removal()
+        
+        argv = " ".join(context.args).split(" ")
+        usr_msg = ""
+        for i in range (1, len(argv)):
+            usr_msg = usr_msg + " " + argv[i]
+        
+        new_job = context.job_queue.run_once(alarm, due, context = {"chat_id": update.message.chat_id, "str": usr_msg})
+        context.chat_data['job'] = new_job
+
+        update.message.reply_text("I will remind you in {} seconds! ({} minutes)".format(due, round(due/60,2)))
+        
+    except (IndexError, ValueError):
+        update.message.reply_text("Usage: /set <seconds> <message>")
+        
+def alarm(context):
+    """Send the alarm message."""
+    job = context.job
+    context.bot.send_message(job.context["chat_id"], job.context["str"])
+
+def ping(update, context):
+    update.message.reply_text("pong! 🏓")
+
+def list(update,context):
+  update.message.reply_text("Currently available commands\n"
+  
+                          "\nThe Originals:\n"
+                          "• /wong\n"
+                          "• /leong\n"
+                          "• /naki\n"
+                          "• /joo\n"
+                          "• /cheer\n"
+                          
+                          "\nMemes:\n"
+                          "• /confusedcat\n"
+                          "• /kermit\n"
+                          "• /shockedpikachu\n"
+                          "• /radio\n"
+                          
+                          "\nClown name generators:\n"
+                          "• /nc  /el  /vk  /jn  /jy  /cw\n"
+
+                          "\nOtouto clones and other things:\n"
+                          "• /news\n"
+                          "• /eightball\n"
+                          "• /fxkcd <comic number>\n"
+                          "• /convert <value> <unit>\n"
+                          "• /set <seconds> <message>\n"
+                          
+                          "\nUtility:\n"
+                          "• /start\n"
+                          "• /ping\n"
+                          "• /list")
+
+#def gsearchtest(update,context):
+    
+#def test(update,context):
+
+def main():
+  # Create Updater object and attach dispatcher to it
+  #updater = Updater(TOKEN)
+  updater = Updater(TOKEN, use_context=True)
+  dp = updater.dispatcher
+  print("Bot is alive!")
+
+  # Add '<command>' command handler to dispatcher
+  
+  dp.add_handler(CommandHandler('wong',wong))
+  dp.add_handler(CommandHandler('leong',leong))
+  dp.add_handler(CommandHandler('naki',naki))
+  dp.add_handler(CommandHandler('joo',joo))
+  dp.add_handler(CommandHandler('cheer',cheer))
+  
+  dp.add_handler(CommandHandler('confusedcat',confusedcat))
+  dp.add_handler(CommandHandler('kermit',kermit))
+  dp.add_handler(CommandHandler('shockedpikachu',shockedpikachu))
+  dp.add_handler(CommandHandler('radio',radio))
+  
+  dp.add_handler(CommandHandler('nc',nc))
+  dp.add_handler(CommandHandler('el',el))
+  dp.add_handler(CommandHandler('vk',vk))
+  dp.add_handler(CommandHandler('jn',jn))
+  dp.add_handler(CommandHandler('jy',jy))
+  dp.add_handler(CommandHandler('cw',cw))
+  
+  dp.add_handler(CommandHandler('news',news))
+  dp.add_handler(CommandHandler('eightball',eightball))
+  dp.add_handler(CommandHandler('fxkcd',xkcd))
+  dp.add_handler(CommandHandler('convert',convert))
+  dp.add_handler(CommandHandler('set', set_timer, pass_args=True, pass_job_queue=True, pass_chat_data=True))
+  
+  dp.add_handler(CommandHandler('start',start))
+  dp.add_handler(CommandHandler('list',list))
+  dp.add_handler(CommandHandler('ping',ping))
+  
+  #dp.add_handler(CommandHandler('t',test))
+  #dp.add_handler(CommandHandler('g',gsearchtest))
+  
+  # Start the bot
+  updater.start_polling()
+
+  # Run the bot until you press Ctrl-C
+  updater.idle()
+
+if __name__ == '__main__':
+  main()
