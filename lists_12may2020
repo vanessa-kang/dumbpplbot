@@ -67,4 +67,4 @@ site = ["https://rss.nytimes.com/services/xml/rss/nyt/World.xml", #nyt world
         
 ballList = ["No.", "It is certain.", "My reply is no.", "My sources say no.", "Very doubtful.", "Don't count on it.", "Yes.", "It is decidedly so.", "Of course, my horse.", "Without a doubt.", "You may rely on it.", "As I see it, yes.", "Signs point to yes.", "Most likely.", "Ask again later.", "Cannot predict now.", "Concentrate and ask again.", "There is a time and place for everything, but not now."]
 
-unitsList = ['kg', 'lb', 'cm', 'ft', 'km', 'mi', 'C', 'F']
+unitsList = ["kg", "lb", "cm", "ft", "km", "mi", "C", "F"]
